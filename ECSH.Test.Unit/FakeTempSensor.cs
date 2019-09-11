@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECSH;
 
-namespace ECSH
+namespace ECSH.Test.Unit
 {
-    class TempSensor : ITempSensor
+    class FakeTempSensor : ITempSensor
     {
-        private readonly Random _gen = new Random();
+        public int temp = 0;
+        public bool SelfTest = false;
         public int GetTemp()
         {
-            return _gen.Next(-5, 45);
+            return temp;
         }
 
         public bool RunSelfTest()
         {
-            return true;
+            return SelfTest;
         }
     }
 }

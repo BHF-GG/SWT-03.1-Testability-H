@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS.H
+namespace ECSH
 {
     class Application
     {public static void Main(string[] args)
         {
-            var ecs = new ECS(28);
+            var ecs = new ECS(28, new TempSensor(), new Heater());
 
             ecs.Regulate();
 

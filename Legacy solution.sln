@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECS.Legacy", "ECS.Legacy\EC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5CABD59-540F-4FA8-B8A3-17B419172AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECS.H", "ECS.H\ECS.H.csproj", "{F8514D06-28E7-4498-A12C-89EDF679528F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECSH", "ECS.H\ECSH.csproj", "{F8514D06-28E7-4498-A12C-89EDF679528F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECSH.Test.Unit", "ECSH.Test.Unit\ECSH.Test.Unit.csproj", "{3A104423-36C3-445B-B133-5165E5B183AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{F8514D06-28E7-4498-A12C-89EDF679528F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8514D06-28E7-4498-A12C-89EDF679528F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8514D06-28E7-4498-A12C-89EDF679528F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A104423-36C3-445B-B133-5165E5B183AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A104423-36C3-445B-B133-5165E5B183AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A104423-36C3-445B-B133-5165E5B183AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A104423-36C3-445B-B133-5165E5B183AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

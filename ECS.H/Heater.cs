@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS.H
+namespace ECSH
 {
-    class Heater
+    class Heater : IHeater
     {
         public void TurnOn()
         {
