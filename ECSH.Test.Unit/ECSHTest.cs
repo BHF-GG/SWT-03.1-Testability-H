@@ -14,13 +14,15 @@ namespace ECSH.Test.Unit
         private ECSH.ECS uut;
         private FakeTempSensor fTempSensor;
         private FakeHeater fHeater;
+        private FakeWindow fWindow;
 
         [SetUp]
         public void SetUp()
         {
             fTempSensor = new FakeTempSensor();
             fHeater = new FakeHeater();
-            uut = new ECSH.ECS(28, fTempSensor, fHeater);
+            fWindow = new FakeWindow();
+            uut = new ECSH.ECS(28, fTempSensor, fHeater, fWindow);
         }
 
         [TestCase(10)]
@@ -33,11 +35,22 @@ namespace ECSH.Test.Unit
 
         [TestCase(1, true)]
         [TestCase(29, false)]
-        public void Regulate_GetTemp_Returns_A_Return_B(int a, bool b)
+        public void Regulate_Without_WindowFunction_GetTemp_ís_A_Function_Return_B(int a, bool b)
         {
             fTempSensor.temp = a;
             uut.Regulate();
             Assert.That(fHeater.HeaterRunning, Is.EqualTo(b));
+        }
+
+        [TestCase(1, true, false)]
+        [TestCase(32, false, false)]
+        [TestCase(33, false, true)]
+        public void Regulate_WithWindowFunction(int a, bool b, bool c)
+        {
+            fTempSensor.temp = a;
+            uut.Regulate();
+            Assert.That(fHeater.HeaterRunning, Is.EqualTo(b));
+            Assert.That(fWindow.IsOpen, Is.EqualTo(c));
         }
 
         [TestCase(true,true,true)]
@@ -49,5 +62,7 @@ namespace ECSH.Test.Unit
             fHeater.SelfTest = b;
             Assert.That(uut.RunSelfTest(), Is.EqualTo(c));
         }
+
+
     }
 }

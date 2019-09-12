@@ -9,14 +9,18 @@ namespace ECSH
     public class ECS
     {
         private int _threshold;
+        private int _maxTemp = 32;
+        private readonly IWindow _window;
         private readonly ITempSensor _tempSensor;
         private readonly IHeater _heater;
 
-        public ECS(int thr, ITempSensor tempSensor, IHeater heater)
+
+        public ECS(int thr, ITempSensor tempSensor, IHeater heater, IWindow window)
         {
             SetThreshold(thr);
             _tempSensor = tempSensor;
             _heater = heater;
+            _window = window;
         }
 
         public void Regulate()
@@ -26,6 +30,15 @@ namespace ECSH
                 _heater.TurnOn();
             else
                 _heater.TurnOff();
+
+            if (t > _maxTemp)
+                _window.Open();
+            else
+                _window.Close();
+
+            if (_window.IsOpen())
+                _heater.TurnOff();
+            
         }
 
         public void SetThreshold(int thr)
